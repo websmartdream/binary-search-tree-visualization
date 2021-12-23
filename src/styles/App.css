@@ -1,0 +1,32 @@
+.app-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-header {
+  background-color: #000000;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  height: 100px;
+  box-shadow: 0 0 10px #000;
+}
+
+.app-title {
+  font-size: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.app-title:hover {
+  text-shadow: 5px 5px 10px #fff;
+}
+
+.app-controller {
+  display: flex;
+  font-size: 20px;
+  font-weight: 900;
+}

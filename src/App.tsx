@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Context from "context/context";
+import React, { useMemo, useState } from "react";
+import { Header, TreeView } from "./ui";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [context, setContext] = useState(0);
+  const contextValue = useMemo(
+    () => ({ context, setContext }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [context]
   );
-}
+  return (
+    <Context.Provider value={contextValue}>
+      <div className="app-container">
+        <Header />
+        <TreeView />
+      </div>
+    </Context.Provider>
+  );
+};
 
 export default App;

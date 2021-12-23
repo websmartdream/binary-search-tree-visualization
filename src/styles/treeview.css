@@ -1,0 +1,227 @@
+.treeview {
+  height: calc(100vh - 100px - 60px);
+  overflow: auto;
+  padding-top: 60px;
+}
+
+.treeview * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.treeview ul {
+  /* display: inline-flex; */
+  display: flex;
+  justify-content: center;
+}
+
+.treeview li {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0 1em;
+  position: relative;
+}
+
+.treeview li ul {
+  margin: 2em 0;
+}
+
+.treeview li li:before {
+  border-top: 3px solid red;
+  content: "";
+  display: block;
+  height: 0.0625em;
+  left: -0.03125em;
+  position: absolute;
+  top: -1.03125em;
+  width: 100%;
+}
+
+.treeview li li:first-child:before {
+  left: calc(50% - 0.03125em);
+  max-width: calc(50% + 0.0625em);
+}
+
+.treeview li li:last-child:before {
+  left: auto;
+  max-width: calc(50% + 0.0625em);
+  right: calc(50% - 0.03125em);
+}
+
+.treeview li li:only-child:before {
+  display: none;
+}
+
+.treeview li li:only-child > .tree-node:before,
+.treeview li li:only-child > .tf-node-content:before {
+  height: 1.0625em;
+  top: -1.0625em;
+}
+
+.treeview .tree-node {
+  cursor: pointer;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: none;
+  background: #000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s all;
+}
+
+.treeview .tree-node,
+.treeview .tf-node-content {
+  border: 0.0625em solid red;
+  position: relative;
+}
+
+.treeview .tree-node:before,
+.treeview .tf-node-content:before {
+  top: -1.03125em;
+}
+
+.treeview .tree-node:after,
+.treeview .tree-node:before,
+.treeview .tf-node-content:after,
+.treeview .tf-node-content:before {
+  /* border-left: 3px solid #000; */
+  width: 4px;
+  background-color: red;
+  content: "";
+  display: block;
+  height: 1em;
+  left: calc(50% - 2px);
+  position: absolute;
+  /* width: 0.0625em; */
+}
+
+.treeview .tree-node:after,
+.treeview .tf-node-content:after {
+  top: calc(100% + 0.03125em);
+}
+
+.treeview .tree-node:only-child:after,
+.treeview .tf-node-content:only-child:after,
+.treeview > ul > li > .tree-node:before,
+.treeview > ul > li > .tf-node-content:before {
+  display: none;
+}
+
+.treeview.tf-gap-sm li {
+  padding: 0 0.6em;
+}
+
+.treeview.tf-gap-sm li > .tree-node:before,
+.treeview.tf-gap-sm li > .tf-node-content:before {
+  height: 0.6em;
+  top: -0.6em;
+}
+
+.treeview.tf-gap-sm li > .tree-node:after,
+.treeview.tf-gap-sm li > .tf-node-content:after {
+  height: 0.6em;
+}
+
+.treeview.tf-gap-sm li ul {
+  margin: 1.2em 0;
+}
+
+.treeview.tf-gap-sm li li:before {
+  top: -0.63125em;
+}
+
+.treeview.tf-gap-sm li li:only-child > .tree-node:before,
+.treeview.tf-gap-sm li li:only-child > .tf-node-content:before {
+  height: 0.6625em;
+  top: -0.6625em;
+}
+
+.treeview.tf-gap-lg li {
+  padding: 0 1.5em;
+}
+
+.treeview.tf-gap-lg li > .tree-node:before,
+.treeview.tf-gap-lg li > .tf-node-content:before {
+  height: 1.5em;
+  top: -1.5em;
+}
+
+.treeview.tf-gap-lg li > .tree-node:after,
+.treeview.tf-gap-lg li > .tf-node-content:after {
+  height: 1.5em;
+}
+
+.treeview.tf-gap-lg li ul {
+  margin: 3em 0;
+}
+
+.treeview.tf-gap-lg li li:before {
+  top: -1.53125em;
+}
+
+.treeview.tf-gap-lg li li:only-child > .tree-node:before,
+.treeview.tf-gap-lg li li:only-child > .tf-node-content:before {
+  height: 1.5625em;
+  top: -1.5625em;
+}
+
+.treeview li.tf-dotted-children .tree-node:after,
+.treeview li.tf-dotted-children .tree-node:before,
+.treeview li.tf-dotted-children .tf-node-content:after,
+.treeview li.tf-dotted-children .tf-node-content:before {
+  border-left-style: dotted;
+}
+
+.tree-node.last-node::after {
+  width: 0;
+}
+
+.treeview li.tf-dotted-children li:before {
+  border-top-style: dotted;
+}
+
+.treeview li.tf-dotted-children > .tree-node:before,
+.treeview li.tf-dotted-children > .tf-node-content:before {
+  border-left-style: solid;
+}
+
+.treeview li.tf-dashed-children .tree-node:after,
+.treeview li.tf-dashed-children .tree-node:before,
+.treeview li.tf-dashed-children .tf-node-content:after,
+.treeview li.tf-dashed-children .tf-node-content:before {
+  border-left-style: dashed;
+}
+
+.treeview li.tf-dashed-children li:before {
+  border-top-style: dashed;
+}
+
+.treeview li.tf-dashed-children > .tree-node:before,
+.treeview li.tf-dashed-children > .tf-node-content:before {
+  border-left-style: solid;
+}
+
+@keyframes AnimationName {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(360deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.new-node {
+  background: red !important;
+  animation: AnimationName 3s ease-in-out infinite;
+}
