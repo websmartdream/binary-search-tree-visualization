@@ -12,6 +12,7 @@ const TreeView = () => {
   const [rootTree, setRootTree] = useState<any>(null);
 
   useEffect(() => {
+    console.log(bstInstance.root);
     window.addEventListener("keydown", handleKeyPressed);
     return () => {
       window.removeEventListener("keydown", handleKeyPressed);
@@ -20,6 +21,7 @@ const TreeView = () => {
   }, []);
 
   const handleKeyPressed = (e: any) => {
+    console.log(bstInstance.root);
     if (e.code === "Space") {
       const number = Math.floor(Math.random() * (100 + 100 + 1)) - 100;
       bstInstance.addNode(number);
@@ -34,18 +36,30 @@ const TreeView = () => {
     setRootTree((prev: any) => ({ ...prev, ...bstInstance.root }));
   };
 
+  const resetTree = () => {
+    bstInstance.resetTree();
+    setRootTree(null);
+  };
+
   return (
     <div className="treeview">
-      <ul>
-        <li>
-          <Tree
-            data={rootTree}
-            newNode={newNode}
-            parent={bstInstance.root}
-            onRemove={removeNode}
-          />
-        </li>
-      </ul>
+      <div className="reset-tree" onClick={resetTree}>
+        Reset Tree
+      </div>
+      {bstInstance.root ? (
+        <ul>
+          <li>
+            <Tree
+              data={rootTree}
+              newNode={newNode}
+              parent={bstInstance.root}
+              onRemove={removeNode}
+            />
+          </li>
+        </ul>
+      ) : (
+        <div className="notree">Press the Spacebar!!!</div>
+      )}
     </div>
   );
 };

@@ -71,6 +71,11 @@ class TreeGenerator {
     return current.data;
   }
 
+  resetTree() {
+    this.root = null;
+    return null;
+  }
+
   removeNode(data) {
     const { findMinNode } = this;
     function removeData(nodes, datas) {

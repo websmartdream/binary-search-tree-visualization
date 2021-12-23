@@ -2,6 +2,43 @@
   height: calc(100vh - 100px - 60px);
   overflow: auto;
   padding-top: 60px;
+  text-align: center;
+  position: relative;
+}
+
+.reset-tree {
+  position: fixed;
+  top: 120px;
+  left: 20px;
+  background: rgb(70, 53, 167);
+  color: white;
+  padding: 10px 20px !important;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.reset-tree:hover {
+  background: rgb(88, 74, 167);
+}
+
+@keyframes TextAnim {
+  0% {
+    margin-top: 20px;
+  }
+  50% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 20px;
+  }
+}
+
+.notree {
+  font-size: 50px;
+  font-weight: 900;
+  margin-top: 20px;
+  animation: TextAnim 1s ease-in-out infinite;
 }
 
 .treeview * {
