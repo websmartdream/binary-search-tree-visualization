@@ -12,7 +12,6 @@ const TreeView = () => {
   const [rootTree, setRootTree] = useState<any>(null);
 
   useEffect(() => {
-    console.log(bstInstance.root);
     window.addEventListener("keydown", handleKeyPressed);
     return () => {
       window.removeEventListener("keydown", handleKeyPressed);
@@ -21,7 +20,6 @@ const TreeView = () => {
   }, []);
 
   const handleKeyPressed = (e: any) => {
-    console.log(bstInstance.root);
     if (e.code === "Space") {
       const number = Math.floor(Math.random() * (100 + 100 + 1)) - 100;
       bstInstance.addNode(number);

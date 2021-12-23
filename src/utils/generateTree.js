@@ -55,7 +55,6 @@ class TreeGenerator {
     if (node.left === null) {
       return node;
     } else {
-      console.log(node);
       return this.findMinNode(node.left);
     }
   };
